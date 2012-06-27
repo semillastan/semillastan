@@ -1,0 +1,80 @@
+{% extends "registration/base.html" %}
+
+{% block title  %} Sign Up {% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function() {      
+     
+            //Execute the slideShow, set 4 seconds for each images
+            slideShow(3000);
+         
+        });
+         
+        function slideShow(speed) {
+         
+            //Set the opacity of all images to 0
+            $('div.slideshow div').hide();
+             
+            //Get the first image and display it (set it to full opacity)
+            $('div.slideshow div:first').show();
+            
+            //Call the gallery function to run the slideshow    
+            var timer = setInterval('gallery()',speed);
+             
+            //pause the slideshow on mouse over
+            $('div.slideshow').hover(
+                function () {
+                    clearInterval(timer);   
+                },  
+                function () {
+                    timer = setInterval('gallery()',speed);         
+                }
+            );
+             
+        }
+         
+        function gallery() {
+         
+         
+            //if no IMGs have the show class, grab the first image
+            var current = ($('div.slideshow div.show')?  $('div.slideshow div.show') : $('#div.slideshow div:first'));
+         
+            //Get next image, if it reached the end of the slideshow, rotate it back to the first image
+            var next = ((current.next().length) ? ((current.next().attr('id') == 'slideshow-caption')? $('div.slideshow div:first') :current.next()) : $('div.slideshow div:first'));
+                 
+                 
+            //Set the fade in effect for the next image, show class has higher z-index
+            next.fadeOut().addClass('show').delay(2000).fadeIn(1000);
+         
+            //Hide the current image
+            current.delay(1000).fadeOut(700).removeClass('show');
+         
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    	<div id="header">
+			<img src="{{ MEDIA_URL }}images/backscratch-logo.png" />
+		</div>
+		<div id="two-panel">
+			<div id="left-panel">
+				<img src="{{ MEDIA_URL }}images/slogan.png" />
+                <div id="spacer15"></div>
+                <div class="slideshow">
+                    <div class="show"><img src="{{ MEDIA_URL }}images/box.png" /></div>
+                    <div><img src="{{ MEDIA_URL }}images/cart.png" /></div>
+                    <div><img src="{{ MEDIA_URL }}images/pencil.png" /></div>
+                    <div><img src="{{ MEDIA_URL }}images/magnifying-glass.png" /></div>
+                </div>
+			</div>
+			<div id="right-panel">
+                <div id="registration" class="complete">
+                    <span class="title">Activation Complete!</span>
+                    <span class="message">Congratulations! Your account is now activated.</span>
+                    <a href="{% url auth_login %}"> Login Here </a>
+                </div>
+			</div>
+	</div>
+{% endblock %}

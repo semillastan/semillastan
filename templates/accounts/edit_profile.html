@@ -1,0 +1,31 @@
+{% extends 'accounts/base.html' %}
+
+{% block title  %} Edit Profile {% endblock %}
+
+{% block extra_head %}
+    <link href="{{MEDIA_URL}}css/registration.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+    <div id="spacer2"></div>
+    <div id="registration-box">
+        <span class="title">Update Profile</span>
+        <form id='sign-up-form' action="{% url edit_profile %}" method="post"> {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div id="non-field-errors">{{ form.non_field_errors|removetags:"li ul"|safe }}</div>
+            {% endif %}
+            {% for field in form %}
+                <div id="fieldWrapper">
+                    <span class='label'>{{field.label_tag}}{% if field.is_required %}*{% endif %}:</span>
+                    {% if field.errors %}<span class="errors">{{ field.errors|removetags:"li ul"|safe }}</span>{% endif %}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <div id="spacer5"></div>
+            <input type="submit" value="Update" />
+            <a href="{% url profile %}"><input type="button" value="Cancel" /></a>
+            <div id="clear-both"></div>
+        </form>
+    </div>
+    <div id="clear-both"></div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title  %} Home {% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$('#coin-slider').coinslider({ width: 800, height: 533, navigation: true, delay: 6000 });
+		});
+	</script>
+{% endblock %}
+
+{% block body %}
+
+    <div id="home">
+		<div id='coin-slider'>
+			<a href="#" target="_blank">
+				<img src='{{MEDIA_URL}}images/gallery/image1.jpg' >
+				<!--<span>Description for img01</span>-->
+			</a>
+			<a href="#" target="_blank">
+				<img src='{{MEDIA_URL}}images/gallery/image2.jpg' >
+				<!--<span>Description for img01</span>-->
+			</a>
+			<a href="#" target="_blank">
+				<img src='{{MEDIA_URL}}images/gallery/image3.jpg' >
+				<!--<span>Description for img01</span>-->
+			</a>
+			<a href="#" target="_blank">
+				<img src='{{MEDIA_URL}}images/gallery/image4.jpg' >
+				<!--<span>Description for img01</span>-->
+			</a>
+		</div>
+        <div id="clear-both"></div>
+    </div>
+    
+    <div id="clear-both"></div>
+{% endblock %}

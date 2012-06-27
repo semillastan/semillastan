@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block title  %} {{ profile.user }} {% endblock %}
+
+{% block body %}
+    <div id="shirt-header">
+        <div id="title">
+            {{ profile.user }}'s profile
+        </div>
+    </div>
+    <div id="profile">
+        <p>Welcome, {{ profile.user }} to SemillaStan.com!</p>
+        {% if profile.user.username == 'upsillag' %}
+            <p><a href="{% url shirts:all_order_sillag %}">Check all orders</a></p>
+        {% endif %}
+    </div>
+{% endblock %}

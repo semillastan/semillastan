@@ -1,0 +1,11 @@
+{% extends 'registration/base.html' %}
+
+{% block title  %} Logout {% endblock %}
+{% block body %}
+    <div id="right-panel">
+        <div id="home-textbox">
+        <p>You have been successfully logged out.</p>
+        <a href="{% url auth_login %}"> Login Here.</a>
+        </div>
+    </div>
+{% endblock %}

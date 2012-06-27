@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{% block title %}{% endblock %}| SemillaStan</title>
+        <link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" >
+        <link href="{{MEDIA_URL}}style.css" rel="stylesheet" type="text/css" />
+        <script src="{{MEDIA_URL}}js/jquery.min.js"></script>
+        <script src="{{MEDIA_URL}}js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="{{MEDIA_URL}}js/coin-slider.min.js"></script>
+        <link rel="stylesheet" href="{{MEDIA_URL}}css/coin-slider-styles.css" type="text/css" />
+
+        <script>
+            $.ajaxSetup({ 
+                 beforeSend: function(xhr, settings) {
+                     function getCookie(name) {
+                         var cookieValue = null;
+                         if (document.cookie && document.cookie != '') {
+                             var cookies = document.cookie.split(';');
+                             for (var i = 0; i < cookies.length; i++) {
+                                 var cookie = jQuery.trim(cookies[i]);
+                                 // Does this cookie string begin with the name we want?
+                             if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                 break;
+                             }
+                         }
+                     }
+                     return cookieValue;
+                     }
+                     if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                         // Only send the token to relative URLs i.e. locally.
+                         xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                     }
+                 } 
+            });
+            
+            $(document).ready(function(){
+                var h = window.innerHeight;
+                $(".body").css('min-height', '30%');
+            });
+        </script>
+        {% block js  %}{% endblock %}
+        {% block css %}{% endblock %}
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+				<div class="leftcol">
+					<div class="box"></div>
+					<span class="company">semillastan</span>
+					<div class="spacer"></div>
+					<span class="tagline">web consultancy</span>
+					<span class="tagline">and photography</span>
+				</div>
+				<div class="rightcol">
+					<span class="link">register</span>
+					<span class="link">login</span>
+				</div>
+            </div>
+        </header>
+        <nav>
+            <div class="wrapper">
+				<div class="link active"><a>home</a></div>
+                <div class="link"><a>blog</a></div>
+                <div class="link"><a>gallery</a></div>
+                <div class="link"><a>about</a></div>
+                <div class="link"><a>contact</a></div>
+            </div>
+        </nav>
+        <div class="body">
+			<div class="wrapper">
+				{% block body %}{% endblock %}
+            </div>
+        </div>
+        <footer>
+            <div class="wrapper">
+                
+            </div>
+        </footer>
+        <div style="clear:both"></div>
+    </body>
+</html>

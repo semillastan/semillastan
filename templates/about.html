@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title  %} About {% endblock %}
+
+{% block extra_head %}
+    <link href="{{MEDIA_URL}}css/contact.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function(){
+        
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="about">
+        <div class="left">
+			<img src="{{MEDIA_URL}}images/gallery/IMG_0632.JPG" />
+        </div>
+        <div class="right">
+			<div class="blocks">
+				<div style="background-color: #3a3a3a"></div>
+				<div style="background-color: #6a6a6a"></div>
+				<div style="background-color: #d3d3d3"></div>
+				<div style="background-color: #171717"></div>
+			</div>
+			<div class="whoiam">
+				<span class="big">I am a</span>
+				<span class="big">software developer</span>
+				<span class="big">and a</span>
+				<span class="big">photographer.</span>
+				<span class="small">semillastan:~/hobbies$ frisbee, mountain biking, hiking</span>
+			</div>
+        </div>
+        
+        <div id="clear-both"></div>
+    </div>
+    
+    <div id="clear-both"></div>
+{% endblock %}

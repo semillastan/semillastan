@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: SegoeUI;
+	src: url('fonts/SEGOEUI.TTF');
+}
+
+@font-face {
+    font-family: SegoeSB;
+	src: url('fonts/SegoeSb.TTF');
+}
+
+@font-face {
+    font-family: SegoeUII;
+	src: url('fonts/SEGOEUII.TTF');
+}
+
+@font-face {
+    font-family: SegoeL;
+	src: url('fonts/SegoeL.ttf');
+}
+
+@font-face {
+    font-family: SegoeLI;
+	src: url('fonts/SegoeLI.ttf');
+}
+
+#clear-both {
+    clear: both;
+}
+
+body, html{
+	text-align: center;
+	font-family: SegoeL;
+	margin: 0; 
+	padding: 0;
+	height: 90%;
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+header {
+    height: 80px;
+    width: 100%;
+    background-color: #141414;
+    color: #bbbbbb;
+}
+
+header .wrapper  {
+	width: 1024px;
+	height: 80px;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	font-family: SegoeL;
+}
+
+header .wrapper .leftcol {
+	float: left;
+	width: 600px;
+	height: 80px;
+	text-align: left;
+}
+
+header .wrapper .leftcol .box {
+	width: 5px;
+	height: 60px;
+	background-color: #ff7e00;
+	float: left;
+	margin-right: 7px;
+	margin-top: 10px;
+}
+
+header .wrapper .leftcol .company {
+	display: block;
+	height: 80px;
+	line-height: 70px;
+	font-size: 55px;
+	float: left;
+	margin-right: 5px;
+}
+
+header .wrapper .leftcol .spacer {
+	height: 25px;
+	width: 10px;
+}
+
+header .wrapper .leftcol .tagline {
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	font-size: 18px;
+	text-align: left;
+}
+
+header .wrapper .rightcol {
+	float: right;
+	width: 400px;
+	height: 80px;
+	text-align: right;
+}
+
+header .wrapper .rightcol .link {
+	display: block;
+	height: 80px;
+	line-height: 80px;
+	font-size: 40px;
+	float: left;
+	margin-right: 7px;
+	color: #fff;
+	float: right;
+}
+
+header .wrapper .rightcol .link:hover { color: #00aeff; }
+
+nav {
+	height: 100px;
+    width: 100%;
+    background-color: #f7f7f7;
+    text-align: left;
+}
+
+nav .wrapper {
+	margin: 0 auto;
+	width: 1024px;
+	height: 100px;
+}
+
+nav .wrapper .link {
+	float: left;
+	margin-right: 30px;
+	color: #797979;
+	height: 100px;
+	line-height: 100px;
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+
+nav .wrapper .active, nav .wrapper .link:hover {
+	color: #2b2b2b;
+	font-size: 60px;
+	line-height: 90px;
+}
+
+.body {
+	height: 100px;
+    width: 100%;
+    background-color: #f7f7f7;
+    text-align: left;
+}
+
+.body .wrapper {
+	margin: 0 auto;
+	width: 1024px;
+	height: 100px;
+}

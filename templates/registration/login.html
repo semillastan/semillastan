@@ -1,0 +1,43 @@
+{% extends 'base_no_header.html' %}
+
+{% block title  %} Login {% endblock %}
+
+{% block extra_head %}
+    <link href="{{MEDIA_URL}}css/login.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+    <div id="spacer2"></div>
+    <div id="login-box">
+        <span class="title">Login</span>
+        <form id='login-form' class='login' action="{% url auth_login %}" method="post"> {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div id="non-field-errors">{{ form.non_field_errors|removetags:"li ul"|safe }}</div>
+            {% endif %}
+            {% for field in form %}
+                <div id="fieldWrapper">
+                    <span class='label'>{{field.label_tag}}{% if field.required %}*{% endif %}:</span>
+                    {% if field.errors %}<span class="errors">{{ field.errors|removetags:"li ul"|safe }}</span>{% endif %}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <div id="spacer5"></div>
+            <div id="login-help">
+                <span class='link'><a href="">Forgot password?</a></span>
+                <span class='link'>Not a member yet? <a href="{% url registration_register %}">Sign up here.</a></span>
+                <div id="clear-both"></div>
+            </div>
+            <input type="submit" value="Login" />
+        </form><div id="clear-both"></div>
+        <div id="spacer15"></div>
+        <div id="social">
+            <span>Login using: </span>
+            <a id="social" class="facebook" href="{% url socialauth_begin 'facebook' %}">Facebook</a>
+            <a id="social" class="twitter" href="{% url socialauth_begin 'twitter' %}">Twitter</a>
+        </div>
+        
+        <div id="clear-both"></div>
+    </div>
+    
+{% endblock %}
