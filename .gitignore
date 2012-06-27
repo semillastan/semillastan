@@ -5,4 +5,4 @@
 .coverage
 local_settings.py
 static/
-semillastan/localsettings.py
+localsettings.py
